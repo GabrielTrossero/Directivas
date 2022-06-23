@@ -7,9 +7,15 @@
 <p [ngStyle]="propiedadesParrafo">
   Este es el texto de prueba 2
 </p>
+
 <div>
   <button (click)="cambiarColor('v')">Verde</button>
   <button (click)="cambiarColor('r')">Rojo</button>
   <button (click)="cambiarColor('b')">Azul</button>
 </div>
+
 <input type="text" [(ngModel)]="propiedadesParrafo.color">
+<br>
+<input type="range" min="12" max="50" step="2" (change)="onChange($event)">
+<br>
+<input type="range" min="12" max="50" step="2" (input)="onInput($event)">

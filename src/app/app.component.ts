@@ -30,4 +30,12 @@ export class AppComponent {
     }
   }
 
+  onChange($event) {
+    this.propiedadesParrafo.fontSize = $event.target.value + 'px';
+  }
+
+  onInput($event) {
+    this.propiedadesParrafo.fontSize = $event.target.value + 'px';
+  }
+
 }
