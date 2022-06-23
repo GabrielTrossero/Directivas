@@ -6,5 +6,28 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  title = 'Directivas';
+
+  propiedadesParrafo: any;
+
+  constructor() {
+    this.propiedadesParrafo = {
+      color: 'red', 
+      fontSize: '25px'
+    };
+  }
+
+  cambiarColor(color: string) {
+    switch (color) {
+      case 'v':
+        this.propiedadesParrafo.color = 'green';
+        break;
+      case 'r':
+        this.propiedadesParrafo.color = 'red';
+        break;
+      case 'b':
+        this.propiedadesParrafo.color = 'blue';
+        break;
+    }
+  }
+
 }
