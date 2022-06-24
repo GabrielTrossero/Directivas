@@ -8,12 +8,15 @@ import { Component } from '@angular/core';
 export class AppComponent {
 
   propiedadesParrafo: any;
+  mostrar: boolean;
 
   constructor() {
     this.propiedadesParrafo = {
       color: 'red', 
       fontSize: '25px'
     };
+
+    this.mostrar = true;
   }
 
   cambiarColor(color: string) {
@@ -36,6 +39,13 @@ export class AppComponent {
 
   onInput($event) {
     this.propiedadesParrafo.fontSize = $event.target.value + 'px';
+  }
+
+  onClickMostrar() {
+    if (this.mostrar === true) {
+      this.mostrar = false;
+    }
+    else this.mostrar = true;
   }
 
 }

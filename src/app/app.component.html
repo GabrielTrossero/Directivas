@@ -1,3 +1,4 @@
+<!--ngStyle-->
 <p [ngStyle]="{color: 'red', fontSize: '25px'}">
   Este es el texto de prueba 1
 </p>
@@ -12,6 +13,8 @@
   <button (click)="cambiarColor('b')">Azul</button>
 </div>
 
+
+<!--ngModel-->
 <input type="text" [(ngModel)]="propiedadesParrafo.color">
 <br>
 <input type="range" min="12" max="50" step="2" (change)="onChange($event)">
@@ -20,5 +23,29 @@
 
 <br><br>
 
+
+<!--ngClass-->
 <h3>Componente Semaforo</h3>
 <app-semaforo></app-semaforo>
+
+
+<!--ngIf-->
+<h3 *ngIf="mostrar">Este es un texto con ngIf</h3>
+<button (click)="onClickMostrar()">Mostrar / Ocultar</button>
+
+
+<!--ngIf (then, else)-->
+<ng-template *ngIf="mostrar; then mainBlock else elseBlock"></ng-template>
+<ng-template #mainBlock>
+  <h3>Contenido del primer texto</h3>
+</ng-template>
+<ng-template #elseBlock>
+  <h3>Contenido del segundo texto</h3>
+</ng-template>
+<button (click)="onClickMostrar()">Mostrar / Ocultar</button>
+
+
+<!--ngIf (then, else) - FORMA MÁS SIMPLIFICADA-->
+<h3 *ngIf="mostrar">Contenido del primer texto</h3>
+<h3 *ngIf="!mostrar">Contenido del segundo texto</h3>
+<button (click)="onClickMostrar()">Mostrar / Ocultar</button>
