@@ -1,0 +1,13 @@
+.semaforo {
+    width: 200px;
+    height: 200px;
+    background-color: blue;
+}
+
+.redondo {
+    border-radius: 50%;
+}
+
+.rojo {
+    background-color: red;
+}
