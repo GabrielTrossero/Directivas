@@ -1,9 +1,11 @@
-import { Directive, ElementRef, HostBinding, HostListener, Renderer2 } from '@angular/core';
+import { Directive, ElementRef, HostBinding, HostListener, Input, Renderer2 } from '@angular/core';
 
 @Directive({
   selector: '[appSubrayado]'
 })
 export class SubrayadoDirective {
+
+  @Input() config: any;
 
   @HostBinding('class') isHover: string;
 
@@ -14,15 +16,20 @@ export class SubrayadoDirective {
     //Esto hace lo mismo que el de arriba pero de una forma idependiente de la plataforma que utilicemos 
     this.renderer.setStyle(this.elem.nativeElement, 'text-decoration', 'underline');
     this.renderer.setStyle(this.elem.nativeElement, 'color', 'indigo');
+
+    this.config = {
+      colorHover: 'green',
+      colorNoHover: 'indigo'
+    }
   }
 
   @HostListener('mouseover') onHover() {
-    this.renderer.setStyle(this.elem.nativeElement, 'color', 'green');
+    this.renderer.setStyle(this.elem.nativeElement, 'color', this.config.colorHover);
     this.isHover = 'hover';
   }
   
   @HostListener('mouseout') onMouseOut() {
-    this.renderer.setStyle(this.elem.nativeElement, 'color', 'indigo');
+    this.renderer.setStyle(this.elem.nativeElement, 'color', this.config.colorNoHover);
     this.isHover = 'noHover';
   }
 
